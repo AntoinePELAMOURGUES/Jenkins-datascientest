@@ -34,9 +34,9 @@ pipeline {
       steps {
         input {
           message "Deploy in your main branch"
-          ok "Yes"
+          ok "Deploy"
         }
-      }    
+      }  
     }
     stage('Pushing and Merging'){
       parallel {
