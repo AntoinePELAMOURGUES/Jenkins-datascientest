@@ -55,12 +55,12 @@ pipeline {
           }          
         }
       }
-    }    
-  }
-  post {
+    }
+    post {
     always {
       echo "Deconnexion de Dockerhub"
       sh "docker logout"
     }
+  }    
   }
-}
+  
