@@ -17,7 +17,7 @@ pipeline {
     //     sh 'echo "Tests unitaires"'
     //     sh 'python -m unittest'
     //   }      
-    }
+    // }
     stage('Deploying') {
       steps {
         echo 'Création image Docker'
@@ -56,11 +56,12 @@ pipeline {
         }
       }
     }
+  }
     post {
     always {
       echo "Deconnexion de Dockerhub"
       sh "docker logout"
     }
   }    
-  }
+}
   
