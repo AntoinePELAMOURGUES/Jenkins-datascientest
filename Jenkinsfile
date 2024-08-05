@@ -5,20 +5,20 @@ pipeline {
     DOCKER_IMAGE = "datascientestapi"
     DOCKER_TAG = "v.${BUILD_ID}.0" 
   }
-  stages{
-    stage('Building'){
+  stages {
+    stage('Building') {
       steps {
         sh 'echo "Installation des librairies"'
         sh 'pip install -r requirements.txt'
       }      
     }
-    stage('Testing'){
+    stage('Testing') {
       steps {
         sh 'echo "Tests unitaires"'
         sh 'python -m unittest'
       }      
     }
-    stage('Deploying'){
+    stage('Deploying') {
       steps {
         echo 'Création image Docker'
         script {
@@ -31,14 +31,14 @@ pipeline {
       }
     }
     stage('User Acceptance') {
-            steps{
-                input {
-              message "Proceed to push to main"
-              ok "Yes"
-            }    
-            }
+      steps {
+        input {
+          message "Proceed to push to main"
+          ok "Yes"
+        }
+      }
     }
-    stage('Pushing and Merging'){
+    stage('Pushing and Merging') {
       parallel {
         stage('Pushing') {
           environment {
@@ -57,10 +57,10 @@ pipeline {
       }
     }    
   }
-  post{
-      always {
-        echo "Deconnexion de Dockerhub"
-        sh "docker logout"
-      }
+  post {
+    always {
+      echo "Deconnexion de Dockerhub"
+      sh "docker logout"
     }
+  }
 }
