@@ -33,11 +33,10 @@ pipeline {
     stage('User acceptance'){
       steps {
         input {
-
           message "Deploy in your main branch"
           ok "Yes"
         }
-      }      
+      }    
     }
     stage('Pushing and Merging'){
       parallel {
