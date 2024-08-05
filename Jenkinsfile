@@ -30,13 +30,13 @@ pipeline {
         }
       }
     }
-    stage('User acceptance'){
-      steps {
-        input {
-          message "Deploy in your main branch"
-          ok "Deploy"
-        }
-      }  
+    stage('User Acceptance') {
+            steps{
+                input {
+              message "Proceed to push to main"
+              ok "Yes"
+            }    
+            }
     }
     stage('Pushing and Merging'){
       parallel {
