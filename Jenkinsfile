@@ -31,10 +31,13 @@ pipeline {
       }
     }
     stage('User acceptance'){
-      input {
-        message "Deploy in your main branch"
-        ok "Yes"
-      }
+      steps {
+        input {
+
+          message "Deploy in your main branch"
+          ok "Yes"
+        }
+      }      
     }
     stage('Pushing and Merging'){
       parallel {
