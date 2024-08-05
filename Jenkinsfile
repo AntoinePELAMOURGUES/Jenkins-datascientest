@@ -9,11 +9,7 @@ pipeline {
     stage('Building') {
       steps {
         sh 'echo "Installation des librairies"'
-        sh 'pip install -r requirements.txt'
-        sh '''
-        python -m pip install --upgrade pip
-        python -m pip install --upgrade setuptools
-        '''
+        sh 'pip install -r requirements.txt'        
       }      
     }
     stage('Testing') {
