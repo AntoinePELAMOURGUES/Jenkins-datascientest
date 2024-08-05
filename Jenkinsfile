@@ -10,6 +10,11 @@ pipeline {
       steps {
         sh 'echo "Installation des librairies"'
         sh 'pip install -r requirements.txt'
+        sh 'pip install unittest'
+        sh '''
+        python -m pip install --upgrade pip
+        python -m pip install --upgrade setuptools
+        '''
       }      
     }
     stage('Testing') {
